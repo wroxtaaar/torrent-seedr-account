@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: Torrent-Studio-Vercel-Render-Seedr
+    runtime: docker
+    repo: https://github.com/wroxtaaar/Torrent-Studio-Vercel-Render-Seedr
+    branch: main
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: SEEDR_API_TOKEN
+        sync: false
+      - key: SEEDR_LIBRARY_FOLDER_ID
+        sync: false
